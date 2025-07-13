@@ -1,23 +1,38 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import LoginPage from './components/LoginPage';
+import SignupPage from './components/SignupPage';
+import Dashboard from './components/Dashboard';
 
 function App() {
+  const [currentPage, setCurrentPage] = useState('login');
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  const switchToSignup = () => setCurrentPage('signup');
+  const switchToLogin = () => setCurrentPage('login');
+  
+  const handleLogin = () => {
+    setIsAuthenticated(true);
+  };
+  
+  const handleLogout = () => {
+    setIsAuthenticated(false);
+    setCurrentPage('login');
+  };
+
+  // If authenticated, show dashboard
+  if (isAuthenticated) {
+    return <Dashboard onLogout={handleLogout} />;
+  }
+
+  // Show login/signup pages
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {currentPage === 'login' ? (
+        <LoginPage onSwitchToSignup={switchToSignup} onLogin={handleLogin} />
+      ) : (
+        <SignupPage onSwitchToLogin={switchToLogin} onSignup={handleLogin} />
+      )}
     </div>
   );
 }
