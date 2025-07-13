@@ -20,8 +20,8 @@ Future Enhancements:
 ## Installation
 
 1. Clone the repo: git clone https://github.com/abhideole17/CattleInsurance/
-2. Navigate into the folder: cd CattleInsurance && cd frontend
-5. Install dependencies: 
+2. Navigate into the folder: cd CattleInsurance/cd frontend
+5. Install dependencies: npm install
 6. Start the app: npm start
 
 
