@@ -39,7 +39,6 @@ Future Enhancements:
 - 🔍 Real-time claim tracking
 - 📱 Mobile-responsive interface
 
-  ## Screenshots
 
 ## Screenshots
 
